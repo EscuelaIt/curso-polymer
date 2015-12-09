@@ -1,0 +1,12 @@
+node_modules
+dist
+.tmp
+.sass-cache
+.DS_Store
+bower_components
+01-crear-componentes/bower_components
+02-styling/bower_components
+03-eventos-observers/bower_components
+04-binding-interoperabilidad/bower_components
+05-polymer-starter-kit/bower_components
+06-polymer-a-produccion/bower_components
