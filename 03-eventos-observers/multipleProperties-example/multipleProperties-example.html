@@ -1,0 +1,125 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+An element providing a solution to no problem in particular.
+
+Example:
+
+    <multipleProperties-example></multipleProperties-example>
+
+Example:
+
+    <multipleProperties-example>
+      <h2>Hello multipleProperties-example</h2>
+    </multipleProperties-example>
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="multipleProperties-example">
+  <template>
+    <style>
+      :host {
+        display: block;
+        box-sizing: border-box;
+      }
+    </style>
+
+    <p>Player: {{fullname}}</p>
+    <p>Points: {{person.points}}</p>
+    <p>lives:  {{person.lives}}</p>
+
+    <button on-tap="killPlayer"> kill Player</button>
+    <button on-tap="createEnemy">Create Enemy</button>
+
+    <div hidden$="{{show}}">
+      <p>Enemy: {{enemy.name}}</p>
+      <p>Player energy: {{person.energy}}</p>
+      <p>Enemy energy:  {{enemy.energy}}</p>
+      <button on-tap="hitEnemy"> Hit Enemy</button>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'multipleProperties-example',
+
+      properties: {
+        person: {
+          type: Object,
+          value: function(){
+            return { name: 'David', lastName: 'Iglesias', points: 5000, lives: 1}
+          }
+        },
+        fullname: {
+          type: String,
+          computed: 'computeFullName(person.name, person.lastName)'
+        },
+        enemy: {
+          type: Object
+        },
+        show: {
+          type: Boolean,
+          value: true
+        }
+
+      },
+
+      observers: ['personChanged(person.lives)', 'prepareFigth(person.lives, enemy.lives)'],
+
+      personChanged: function (lives){
+        if (!lives){
+          alert('Game Over');
+        }
+      },
+
+      computeFullName: function(name, lastName) {
+       return name + ' ' + lastName;
+     },
+
+     prepareFigth: function(value1, value2){
+       this.set('person.energy', 100);
+       this.set('enemy.energy', 100);
+       this.show = false;
+     },
+
+
+     killPlayer: function(){
+       this.person.lives -= 1;
+       /*ejemplo roto se debe usar set
+       version set;
+       var newLives;
+       newLives = --this.person.lives;
+       this.set('person.lives',newLives);
+       version notifyPath
+       this.notifyPath('person.lives', this.person.lives);
+       */
+     },
+
+     hitEnemy: function(){
+       this.set('enemy.energy', this.enemy.energy -10);
+       if (!this.enemy.energy){
+          this.set('enemy', null);
+          this.show = true;
+       }
+     },
+
+     createEnemy: function(){
+       this.set('enemy', {name: 'Enemy', lives: 1})
+
+     }
+
+    });
+  </script>
+</dom-module>
