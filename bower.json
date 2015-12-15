@@ -2,12 +2,12 @@
   "name": "curso-polymer",
   "homepage": "https://github.com/EscuelaIt/curso-polymer",
   "authors": [
-    "Felix Zapata (@felixzapata)",
-    "Luis Recio (@recluising)",
     "Miguel Angel Alvarez (@midesweb)",
-    "David Iglesias Zavala (@davidigza)",
-    "Pedro Hurtado (@_PedroHurtado)",
     "Jorge del Casar (@jorgecasar)",
+    "Felix Zapata (@felixzapata)",
+    "David Iglesias Zavala (@davidigza)",
+    "Luis Recio (@recluising)",
+    "Pedro Hurtado (@_PedroHurtado)",
     "Matias Punx (@antirockstars)"
   ],
   "description": "En este taller se pretende dar una introducción ordenada a Polymer recorriendo los puntos esenciales para poder comenzar a trabajar con la librería.",
