@@ -5,6 +5,8 @@
 <head>
   <meta charset="utf-8">
 
+  <base href="../">
+
   <!-- Place this data between the <head> tags of your website -->
   <title>Data binding – Curso Polymer EscuelaIT</title>
   <meta name="description" content="Binding, two way, one way, notifys, readOnly. Autobinding templates. Ajax."
@@ -43,25 +45,25 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-  <link rel="stylesheet" href="../../reveal.js/css/reveal.css">
-  <link rel="stylesheet" href="../../reveal.js/css/theme/night.css" id="theme">
-  <link rel="stylesheet" href="../../Reveal.js-Title-Footer/plugin/title-footer/title-footer.css">
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="../Reveal.js-Title-Footer/plugin/title-footer/title-footer.css">
 
   <!-- Code syntax highlighting -->
-  <link rel="stylesheet" href="../../reveal.js/lib/css/zenburn.css">
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
 
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = window.location.search.match( /print-pdf/gi ) ? '../../reveal.js/css/print/pdf.css' : '../../reveal.js/css/print/paper.css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 
   </script>
 
   <!--[if lt IE 9]>
-<script src="../../reveal.js/lib/js/html5shiv.js"></script>
+<script src="../reveal.js/lib/js/html5shiv.js"></script>
 <![endif]-->
 </head>
 
@@ -117,8 +119,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
   </div>
 
-  <script src="../../reveal.js/lib/js/head.min.js"></script>
-  <script src="../../reveal.js/js/reveal.js"></script>
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
 
   <script>
     (function(document, Reveal){
@@ -136,21 +138,21 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           themes: false,
           transitions: false,
           custom: [
-              { title: 'Bookmarks', icon: '<i class="fa fa-bookmark">', src: '../links.html' },
+              { title: 'Bookmarks', icon: '<i class="fa fa-bookmark">', src: './links.html' },
           ]
         },
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: '../../reveal.js/lib/js/classList.js', async: true, condition: function() { return !document.body.classList; } },
-          { src: '../../reveal.js/plugin/markdown/marked.js', async: true, condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '../../reveal.js/plugin/markdown/markdown.js', async: true, condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '../../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: '../../reveal.js/plugin/zoom-js/zoom.js', async: true },
-          { src: '../../reveal.js/plugin/notes/notes.js', async: true },
-          { src: '../../reveal.js-menu/menu.js', async: true },
-          { src: '../../reveal.js-tagcloud-plugin/tagcloud/tagcloud.js', async: true },
-          { src: '../../Reveal.js-Title-Footer/plugin/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize(); } }
+          { src: '../reveal.js/lib/js/classList.js', async: true, condition: function() { return !document.body.classList; } },
+          { src: '../reveal.js/plugin/markdown/marked.js', async: true, condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/markdown/markdown.js', async: true, condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../reveal.js-menu/menu.js', async: true },
+          { src: '../reveal.js-tagcloud-plugin/tagcloud/tagcloud.js', async: true },
+          { src: '../Reveal.js-Title-Footer/plugin/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize(); } }
         ]
       });
     })(document, Reveal)
