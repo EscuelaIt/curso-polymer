@@ -1,0 +1,34 @@
+<script>
+  Polymer.lifecycleBehavior = {
+
+    created: function() {
+      this._log(this._logf('behavior', this.id + ' was created'));
+    },
+
+    ready: function() {
+      this._log(this._logf('behavior', this.id + ' is ready'));
+    },
+
+    factoryImpl: function(){
+      this._log(this._logf('behavior', this.id + ' was factoryImpl'));
+    },
+
+    attached: function() {
+      this._log(this._logf('behavior', this.id + ' was attached'));
+    },
+
+    detached: function() {
+      this._log(this._logf('behavior', this.id + ' was detached'));
+    },
+
+    attributeChanged: function(name, oldValue, value) {
+      this._log(this._logf('behavior', this.id + ' attribute ' + name +
+        ' was changed from ' + oldValue + ' to ' + value));
+    },
+
+    myFun: function(){
+      this._log(this._logf('behavior', 'myFun'));
+    }
+  };
+
+</script>

@@ -59,7 +59,6 @@ link.rel = 'stylesheet';
 link.type = 'text/css';
 link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
-
   </script>
 
   <!--[if lt IE 9]>
@@ -86,12 +85,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           <h4>Fundando <a href="http://bushidodevs.com/" target="_blank">Bushido Developers</a></h4>
           <h4>Desarrollo de interfaces de usuario en <a href="http://kairosds.com/" target="_blank">Kairós DS</a></h4>
           <p tagcloud>
-            HTML5
-            JavaScript
-            Polymer
-            WebComponents
-            Github
-            GulpJS
+            HTML5 JavaScript Polymer WebComponents Github GulpJS
           </p>
         </section>
       </section>
@@ -103,18 +97,171 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         <section id="polymer-library">
           <h2>Una biblioteca</h2>
           <h4>Conjunto de características para la creación de <code>custom elements</code>.</h4>
+          <p>Diseñada para hacer más fácil y rápido el desarrollo de componentes.</p>
+        </section>
+        <section>
+          <h2>Conceptos</h2>
+          <div class="fragment">
+            <h4>Web components</h4>
+            <p>Enstándares que te permiten construir nuevos componentes.</p>
+            <p>Mucho código y mucho trabajo.</p>
+          </div>
+          <div class="fragment">
+            <h4>Biblioteca Polymer</h4>
+            <p>Sintaxis declarativa, menos código y más sencillo.</p>
+            <p>Añade características: plantillas, enlace de datos bidireccional y observación de propiedades.</p>
+          </div>
+          <div class="fragment">
+            <h4>Custom elements</h4>
+            <p>Elementos construidos con Polymer.</p>
+          </div>
+        </section>
+        <section id="caracteristicas">
+          <h2>Características</h2>
+          <ul>
+            <li>Instanciación usando un constructor o <code>document.createElement</code>.</li>
+            <li>Configuración usando atributos o propiedades.</li>
+            <li>Contiene un DOM local dentro de cada instancia.</li>
+            <li>Responde a cambios en propiedades y atributos.</li>
+            <li>Estilado con los internos por defecto o desde fuera.</li>
+            <li>Responde a métodos que lo manipulan inernamente.</li>
+          </ul>
+        </section>
+        <section id="example">
+          <h2>Ejemplo</h2>
+          <pre><code data-trim>&lt;dom-module id="elemento-saludar"&gt
+  &lt;template&gt
+    &lt;style&gt/* Reglas CSS para tu elemento */&lt;/style&gt;
+    &lt;!-- DOM local para tu elemento y data binding --&gt;
+    &lt;div&gt{{saludo}}&lt;/div&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    // Registro del elemento
+    Polymer({
+      is: "elemento-saludar",
+      // Añadir propiedades y métodos al prototipo del elemento
+      properties: {
+        // Declarar propiedades para la API pública del elemento
+        saludo: {
+          type: String,
+          value: "¡Hola!"
+        }
+      }
+    });
+  &lt;/script&gt;
+&lt;/dom-module&gt;</code></pre>
+        </section>
+      </section>
+      <section>
+        <section id="registrar-componente">
+          <h1>Registrar un componente</h1>
+        </section>
+
+        <section>
+          <h2>Función Polymer</h2>
+          <ul>
+            <li><strong>Parámetro</strong>: Prototipo del componente
+              <ul>
+                <li>Propuedad <code>is</code> obligatoria</li>
+                <li>Nombre del componente debe contener un guión (-)</li>
+              </ul>
+            </li>
+            <li><strong>Devuelve</strong>: Constructor del componente</li>
+          </ul>
+          <pre><code>// Registrar un elemento
+var MiSaludo = Polymer({is: 'elemento-saludar'});
+
+// Crear una instancia con createElement:
+var el1 = document.createElement('elemento-saludar');
+
+// ... o con el constructor:
+var el2 = new MiSaludo();</code></pre>
+        </section>
+        <section>
+          <h2><code>factoryImpl</code></h2>
+          <h3>Constructor personalizado</h3>
+          <ul>
+            <li>Solo se llama usando el constructor.</li>
+            <li>Se llama después de haber inicializado el elemento.</li>
+          </ul>
+          <pre><code>var MiSaludo = Polymer({
+  is: 'elemento-saludar',
+  // Constructor personalizado:
+  factoryImpl: function(saludo, redes) {
+    this.saludo = saludo;
+    this.configurarRedes(redes);
+  },
+  configurarRedes: function(redes){
+    …
+  }
+});
+var el = new MiSaludo('¡Hola!', ['twitter', 'facebook', 'gPlus']);</code></pre>
+        </section>
+
+        <section>
+          <h2>Extender elementos HTML nativos</h2>
+          <ul>
+            <li>Solo nativos (input, buton, etc..).</li>
+            <li>Elementos personalizados en futuras versiones</li>
+            <li>Se llaman: elementos personalizados de extensión de tipo (<i>type extension custom elements</i>)</li>
+          </ul>
+          <pre><code>var MyInput = Polymer({
+  is: 'my-input',
+  // Extiende el elemento input
+  extends: 'input'
+});</code></pre>
+        </section>
+
+      </section>
+
+      <section>
+        <section id="ciclo-vida">
+          <h1>Ciclo de vida</h1>
+        </section>
+
+        <section>
+          <h2>Hooks</h2>
+          <p>Implementa las funciones estandar acortadas</p>
+          <ul>
+            <li><code>created</code> en lugar de <code>createdCallback</code></li>
+            <li><code>attached</code> en lugar de <code>attachedCallback</code></li>
+            <li><code>detached</code> en lugar de <code>detachedCallback</code></li>
+            <li><code>attributeChanged</code> en lugar de <code>attributeChangedCallback</code></li>
+          </ul>
+          <p>Añade una extra, <code>ready</code>, que se lanza cuando Polymer ha terminado de crear e inicializar el DOM local</p>
+        </section>
+
+        <section>
+          <h2>Orden de inicialización</h2>
+          <ol>
+            <li>created callback</li>
+            <li>local DOM initialized</li>
+            <li>ready callback</li>
+            <li>factoryImpl callback</li>
+            <li>attached callback</li>
+          </ol>
+        </section>
+      </section>
+
+      <section>
+        <section id="declaración-propiedades">
+          <h1>Declaración de propiedades</h1>
+        </section>
+        <section>
+
         </section>
       </section>
 
       <section id="" style="text-align: left;" data-state="no-toc-progress">
         <h1>Q&A</h1>
-        <h3>Crear Web Components<br/>
-          <small>por <a href="http://twitter.com/jorgecasar" target="_blank">Jorge del Casar</a> / <a href="http://twitter.com/jorgecasar" target="_blank">@jorgecasar</a></small>
-        </h3>
+        <h3>
+            Crear Web Components<br/>
+            <small>por <a href="http://twitter.com/jorgecasar" target="_blank">Jorge del Casar</a> / <a href="http://twitter.com/jorgecasar" target="_blank">@jorgecasar</a></small>
+          </h3>
         <h4>Resumen</h4>
         <ul>
           <li><a href="#/que-es-polymer">¿Qué es Polymer?</a></li>
-          <li><a href="#/registrr-componente">Registrar un componente</a></li>
+          <li><a href="#/registrar-componente">Registrar un componente</a></li>
           <li><a href="#/ciclo-vida">Ciclo de vida</a></li>
           <li><a href="#/declaración-propiedades">Declaración de propiedades</a></li>
         </ul>
@@ -161,7 +308,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         ]
       });
     })(document, Reveal)
-
   </script>
 
 </body>
