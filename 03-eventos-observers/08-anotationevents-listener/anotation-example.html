@@ -36,27 +36,11 @@ Example:
       }
     </style>
 
-      <div>Tap en el div hacia el Host</div>
-
-      <div on-tap="tapNodo">div escuchado en un nodo</div>
   </template>
 
   <script>
     Polymer({
-      is: 'anotation-example',
-
-      listeners: {
-        'tap': 'tapNormal'
-      },
-
-      tapNormal: function(e) {
-        alert("he llegado al Host");
-      },
-
-      tapNodo: function(e) {
-        e.stopPropagation();
-        alert("Me han generado en el Nodo");
-      }
+      is: 'anotation-example'
     });
   </script>
 </dom-module>

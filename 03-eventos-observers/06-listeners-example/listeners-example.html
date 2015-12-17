@@ -35,29 +35,11 @@ Example:
         box-sizing: border-box;
       }
     </style>
-
-      <div>Tap en el div hacia el Host</div>
-
-      <div id="nodo">div escuchado en un nodo</div>
   </template>
 
   <script>
     Polymer({
-      is: 'listeners-example',
-
-      listeners: {
-        'tap': 'tapNormal',
-        'nodo.tap': 'tapNodo'
-      },
-
-      tapNormal: function(e) {
-        alert("he llegado al Host");
-      },
-
-      tapNodo: function(e) {
-        e.stopPropagation();
-        alert("Me han generado en el Nodo");
-      }
+      is: 'listeners-example'
     });
   </script>
 </dom-module>

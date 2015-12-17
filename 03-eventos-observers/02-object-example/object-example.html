@@ -35,55 +35,11 @@ Example:
         box-sizing: border-box;
       }
     </style>
-
-    <p>Player: {{fullname}}</p>
-    <p>Points: {{person.points}}</p>
-    <p>lives:  {{person.lives}}</p>
-
-    <button on-tap="killPlayer"> kill Player</button>
   </template>
 
   <script>
     Polymer({
-      is: 'object-example',
-
-      properties: {
-        person: {
-          type: Object,
-          value: function(){
-            return { name: 'David', lastName: 'iglesias', points: 5000, lives: 1}
-          }
-        },
-        fullname: {
-          type: String,
-          computed: 'computeFullName(person.name, person.lastName)'
-        }
-
-      },
-
-      observers: ['personChanged(person.lives)'],
-
-      personChanged: function (lives){
-        if (!lives){
-          alert('Game Over');
-        }
-      },
-
-      computeFullName: function(name, lastName) {
-       return name + ' ' + lastName;
-     },
-
-     killPlayer: function(){
-       this.person.lives -= 1;
-       /*ejemplo roto se debe usar set
-       version set;
-       var newLives;
-       newLives = --this.person.lives;
-       this.set('person.lives',newLives);
-       version notifyPath
-       this.notifyPath('person.lives', this.person.lives);
-       */
-     }
+      is: 'object-example'
 
     });
   </script>

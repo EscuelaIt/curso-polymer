@@ -46,22 +46,7 @@ Example:
 
   <script>
     Polymer({
-      is: 'retargeting-example',
-      listeners: {
-        'davidSuperClick': 'doSomething'
-      },
-
-      doSomething: function (e) {
-        // body...
-        console.log(e.detail);
-      },
-
-      fireEvent: function (e) {
-        // body...
-        var eventNormalize;
-        eventNormalize = Polymer.dom(e)
-        this.fire('davidSuperClick', e.target.dataset);
-      }
+      is: 'retargeting-example'
 
     });
   </script>
