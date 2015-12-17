@@ -1,5 +1,5 @@
 {
-  "name": "gestureevents-example",
+  "name": "arrayObserver-example",
   "version": "1.0.6",
   "authors": [
     "Anonymous <anonymous@example.com>"
@@ -10,7 +10,7 @@
     "polymer",
     "seed"
   ],
-  "main": "gestureevents-example.html",
+  "main": "arrayObserver-example.html",
   "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/<USERNAME>/seed-element/",
   "ignore": [

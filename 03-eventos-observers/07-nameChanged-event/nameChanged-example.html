@@ -15,19 +15,19 @@ An element providing a solution to no problem in particular.
 
 Example:
 
-    <listeners-example></listeners-example>
+    <nameChanged-example></nameChanged-example>
 
 Example:
 
-    <listeners-example>
-      <h2>Hello listeners-example</h2>
-    </listeners-example>
+    <nameChanged-example>
+      <h2>Hello nameChanged-example</h2>
+    </nameChanged-example>
 
 @demo demo/index.html
 @hero hero.svg
 -->
 
-<dom-module id="listeners-example">
+<dom-module id="nameChanged-example">
   <template>
     <style>
       :host {
@@ -36,28 +36,26 @@ Example:
       }
     </style>
 
-      <div>Tap en el div hacia el Host</div>
-
-      <div id="nodo">div escuchado en un nodo</div>
+      <input type="text" value="{{person::input}}">
   </template>
 
   <script>
     Polymer({
-      is: 'listeners-example',
+      is: 'nameChanged-example',
+      
+      properties:{
+        person: {
+          type: String,
+          notify: true
+        }
+      },
 
       listeners: {
-        'tap': 'tapNormal',
-        'nodo.tap': 'tapNodo'
+        'person-changed': 'changed'
       },
 
-      tapNormal: function(e) {
-        alert("he llegado al Host");
-      },
-
-      tapNodo: function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        alert("Me han generado en el Nodo");
+      changed: function(event) {
+        alert('cambio a este valor: '+ event.detail.value);
       }
     });
   </script>

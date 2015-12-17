@@ -62,10 +62,13 @@ Example:
         name: {
           type: String,
           value: 'David',
-          observer: 'namedChanged'
+          observer: '_namedChanged'
         },
 
-        futureName: String
+        futureName: {
+          type: String,
+          observer : '_fNameChanged'
+        }
 
       },
 
@@ -80,6 +83,10 @@ Example:
        */
       namedChanged: function(newValue, oldValue) {
         debugger
+      },
+      
+      _fNameChanged:function(newValue, oldValue){
+        debugger;
       }
 
 

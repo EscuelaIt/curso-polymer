@@ -17,26 +17,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../../web-component-tester/browser.js"></script>
 
     <!-- Step 1: import the element to test -->
-    <link rel="import" href="../gestureevents-example.html">
+    <link rel="import" href="../nameChanged-example.html">
   </head>
   <body>
 
     <!-- You can use the document as a place to set up your fixtures. -->
-    <test-fixture id="gestureevents-example-fixture">
+    <test-fixture id="nameChanged-example-fixture">
       <template>
-        <gestureevents-example>
-          <h2>gestureevents-example</h2>
-        </gestureevents-example>
+        <nameChanged-example>
+          <h2>nameChanged-example</h2>
+        </nameChanged-example>
       </template>
     </test-fixture>
 
     <script>
-      suite('<gestureevents-example>', function() {
+      suite('<nameChanged-example>', function() {
 
         var myEl;
 
         setup(function() {
-          myEl = fixture('gestureevents-example-fixture');
+          myEl = fixture('nameChanged-example-fixture');
         });
 
         test('defines the "author" property', function() {
@@ -45,14 +45,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
 
         test('says hello', function() {
-          assert.equal(myEl.sayHello(), 'gestureevents-example says, Hello World!');
+          assert.equal(myEl.sayHello(), 'nameChanged-example says, Hello World!');
 
           var greetings = myEl.sayHello('greetings Earthlings');
-          assert.equal(greetings, 'gestureevents-example says, greetings Earthlings');
+          assert.equal(greetings, 'nameChanged-example says, greetings Earthlings');
         });
 
         test('fires lasers', function(done) {
-          myEl.addEventListener('gestureevents-example-lasers', function(event) {
+          myEl.addEventListener('nameChanged-example-lasers', function(event) {
             assert.equal(event.detail.sound, 'Pew pew!');
             done();
           });
