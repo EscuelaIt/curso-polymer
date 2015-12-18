@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+	<link rel="import" href="../../../polymer/polymer.html">
+	<link rel="import" href="components/numbers-component.html">
+	<link rel="import" href="components/dear-component.html">
+	<link rel="import" href="components/car-parser.html">
+	</script>
+</head>
+
+<body unresolved>
+
+  <h2>Anotaciones</h2>
+	<numbers-component></numbers-component>
+
+  <h2>Text content y biding compuesto</h2>
+	<dear-component
+    name="Frodo"
+    status="OK"
+    my-status="so sad"
+    hometown="mordor"
+    current-city="The Shire"
+    current-date="09/10/2037">
+  </dear-component>
+
+  <h2>Sub propiedades</h2>
+  <car-parser></car-parser>
+</body>
+
+</html>

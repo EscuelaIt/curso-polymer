@@ -1,0 +1,47 @@
+<dom-module id="dear-component">
+	<template>
+
+		<h4> Dear {{name}}:</h4>
+		<p>I wish you are {{status}}. I'm {{myStatus}}.</p>
+
+		<p>Are you still living at {{hometown}}?</p>
+
+		<p>{{currentCity}},
+
+      <!-- All examples before was compound binding. Next example is text content binding -->
+			<span style="font-weight: bold;">{{currentDate}}</span>
+		</p>
+
+	</template>
+
+	<script>
+		Polymer({
+			is: 'dear-component',
+			properties: {
+				name: {
+					type: String
+				},
+				status: {
+					type: String
+				},
+				myStatus: {
+					type: String
+				},
+				hometown: {
+					type: String
+				},
+				currentCity: {
+					type: String
+				},
+				currentDate: {
+					type: String
+				}
+			},
+
+			_sum: function(sum1, sum2) {
+				return sum1 + sum2;
+			}
+
+		});
+	</script>
+</dom-module>
