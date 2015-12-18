@@ -1,0 +1,275 @@
+<!doctype html>
+<!-- Update your html tag to include the itemscope and itemtype attributes. -->
+<html lang="es" itemscope itemtype="http://schema.org/Article">
+
+<head>
+  <meta charset="utf-8">
+
+  <base href="../">
+
+  <!-- Place this data between the <head> tags of your website -->
+  <title>Styling – Curso Polymer EscuelaIT</title>
+  <meta name="description" content="Trata con mayor profundidad Local DOM y cómo realizar styling de elementos desde dentro y fuera del código de los componentes. Custom styles, custom properties."
+  />
+
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="Styling – Curso Polymer EscuelaIT">
+  <meta itemprop="description" content="Trata con mayor profundidad Local DOM y cómo realizar styling de elementos desde dentro y fuera del código de los componentes. Custom styles, custom properties.">
+  <meta itemprop="image" content="http://escuela.it/wp-content/uploads/2015/11/polymer.jpg">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@escuelait">
+  <meta name="twitter:title" content="Styling – Curso Polymer EscuelaIT">
+  <meta name="twitter:description" content="Trata con mayor profundidad Local DOM y cómo realizar styling de elementos desde dentro y fuera del código de los componentes. Custom styles, custom properties.">
+  <meta name="twitter:creator" content="@felixzapata">
+  <!-- Twitter summary card with large image must be at least 280x150px -->
+  <meta name="twitter:image:src" content="http://escuela.it/wp-content/uploads/2015/11/polymer.jpg">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="Styling – Curso Polymer EscuelaIT" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://www.example.com/" />
+  <meta property="og:image" content="http://escuela.it/wp-content/uploads/2015/11/polymer.jpg" />
+  <meta property="og:description" content="Trata con mayor profundidad Local DOM y cómo realizar styling de elementos desde dentro y fuera del código de los componentes. Custom styles, custom properties."
+  />
+  <meta property="og:site_name" content="Escuela IT" />
+  <meta property="article:published_time" content="2015-12-15T20:00:00+01:00" />
+  <meta property="article:modified_time" content="2015-12-15T20:00:00+01:00" />
+  <meta property="article:section" content="Technology" />
+  <meta property="article:tag" content="webcomponents, polymer" />
+  <meta property="fb:admins" content="166109516807820" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="../Reveal.js-Title-Footer/plugin/title-footer/title-footer.css">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+  </script>
+
+  <!--[if lt IE 9]>
+<script src="../reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h1>Styling</h1>
+        <p>
+          <small><a href="http://twitter.com/felixzapata">@felixzapata</a></small>
+        </p>
+      </section>
+
+      <section>
+          <h2>Sobre mí</h2>
+          <ul>
+              <li>Desarrollador senior <em>front end</em> y consultor de accesibilidad web en <a href="http://www.gft.com/es/es/index.html">GFT</a>.</li>
+              <li>Fundador del grupo <em>meetup</em> <a href="http://www.meetup.com/WordPress-Madrid/">WordPress Madrid</a>.</li>
+              <li>Coorganizador de los grupos <em>meetup</em> <a href="http://www.meetup.com/Accesibilidad-Spain/">Accesibilidad Spain</a>, <a href="http://www.meetup.com/AngularJS_Madrid/">AngularJS Madrid</a> y <a href="http://www.meetup.com/es/Madrid-Polymer-Group/">Polymer Madrid</a>.</li>
+              <li>Aerotranstornado: piloto online P1 y controlador S3 en la red <a href="http://www.vatsim.net/">VATSIM</a>.</li>
+              <li><a href="https://github.com/felixzapata">Mi GitHub</a></li>
+          </ul>
+
+      </section>
+      
+      <section>
+        <h2>¿Qué vamos a ver?</h2>
+        <ul>
+          <li>Custom CSS properties.</li>
+          <li>Custom CSS mixins.</li>
+          <li>Shared styles.</li>
+          <li>Custom styles.</li>
+          <li><em>One more thing.</em></li>
+        </ul>
+      </section>
+      
+      <section>
+        <section>
+          <h2>Pero antes de nada...</h2>
+        </section>
+        <section>
+          <h3>Un poco de filosofía</h3>
+          <p class="fragment">Pensad que un &lt;select&gt; es:</p>
+          <ul>
+            <li class="fragment">Funcional.</li>
+            <li class="fragment">Reusable.</li>
+            <li class="fragment">Interoperable.</li>
+            <li class="fragment">Encapsulado.</li>
+            <li class="fragment">Configurable.</li>
+            <li class="fragment">Programable.</li>
+            <li class="fragment">Genera eventos.</li>
+            <li class="fragment">Moldeable.</li>
+          </ul>
+        </section>
+        <section>
+            <h3>Shadow DOM</h3>
+            <p>¿Habéis pensado alguna vez dónde están los elementos que componen un control slider?.</p>
+            <p class="fragment">... hablemos del <em>castillo</em>...</p>
+            <p class="fragment"><a href="https://www.youtube.com/watch?v=IbOaJwqLgog&list=PLNYkxOF6rcICdISJclfQhj2S8QZGjXV8J&index=10">Polymer's Styling System (The Polymer Summit 2015)</a></p>
+        </section>
+        
+        
+        <section>
+            <h3>::shadow</h3>
+            <p>Permite dar estilos a nodos interiores dentro de un shadow dom</p>
+            <pre><code class="html">&lt;paper-slider min="" max="" &gt;&lt;paper-slider&gt;</code></pre>
+            <pre><code class="css">paper-slider::shadow #sliderKnoInner { background-color:$f4b400; }</code></pre>
+            
+        </section>
+        <section>
+            <h3>/deep/</h3>
+            <p>Profundiza dentro de un nodo y busca elementos.</p>
+            <pre><code class="html">&lt;div&gt;
+&lt;span&gt;Outer&lt;/span&gt;
+#shadow-root
+&lt;my-component&gt;
+  &lt;span&gt;Inner&lt;/span&gt;
+&lt;/my-component&gt;
+&lt;/div&gt;</code></pre>
+
+
+            <pre><code class="css">html /deep/ span { background-color:$f4b400; }</code></pre>
+            <pre><code class="css">::shadow span { background-color:$f4b400; }</code></pre>
+            
+        </section>
+        <section>
+          <h3>¿Por qué no se debe usar ::shadow y /deep/?</h3>
+          <ul>
+            <li class="fragment">Rompe la encapsulación.</li>
+            <li class="fragment">Problemas de rendimiento.</li>
+            <li class="fragment">Solución poco elegante.</li>
+          </ul>
+          
+        </section>
+        <section>
+            <h3>Shady DOM</h3>
+            <p><a href="https://www.polymer-project.org/1.0/articles/shadydom.html">Why do we need a new kind of DOM?</a></p>
+        </section>
+        <section>
+            <h3>Global Polymer Settings</h3>
+            <pre><code class="html">&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;script src="components/webcomponentsjs/webcomponents-lite.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.Polymer = window.Polymer || {};
+  window.Polymer.dom = 'shadow';
+&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+        </section>
+      </section>
+      
+      <section>
+        <h2>Custom CSS properties</h2>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables">¿Conocéis las variables de CSS?</a></p>
+        <p class="fragment"><strong>Ojo</strong>, Polymer incluye un <em>shim</em>, así que puede que no se <a href="https://github.com/Polymer/polymer/issues/2709">comporte igual que la especificación</a>.</p>
+      </section>
+      
+      <section>
+        <h2>Custom CSS mixins</h2>
+        <p>D.R.Y.: El <em>shim</em> permite que podamos definir un conjunto de reglas y aplicar éstas a una que estemos definiendo.</p>
+      </section>
+      
+      <section>
+        <h2>Shared styles</h2>
+        <p><a href="http://stackoverflow.com/questions/32298500/polymer-import-theme-file-with-host-in-styles-has-no-affect/32302856#32302856">Polymer @import theme file with :host in styles has no affect</a>.</p>
+        
+      </section>
+      
+      
+      
+      <section>
+        <h2>Custom styles</h2>
+        <p>Definimos estilos en el documento principal tomando ventajas de características especiales de Polymer.</p>
+        <p>Sólo debe ser usado para definir estilos de documento y no (supuestamente) para elementos propios.</p>
+        
+      </section>
+      
+      
+      <section>
+        <h2>One more thing</h2>
+        <ul>
+          <li><a href="https://github.com/PolymerLabs/polystyles">Polystyles</a>: Polymer style module web service</li>
+          <li><a href="https://github.com/dlmanning/gulp-sass">gulp-sass</a> vs <a href="https://github.com/sindresorhus/gulp-ruby-sass">gulp-ruby-sass</a></li>
+          <li><a href="http://enpmjs.com/package/gulp-polymerize-css">gulp-polymerize-css</a></li>
+        </ul>
+      </section>
+      
+      
+      <section>
+        <h2>Enlaces de interés</h2>
+        <ul>
+          <li><a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICdISJclfQhj2S8QZGjXV8J">The Polymer Summit 2015</a></li>
+          <li><a href="https://www.code-labs.io/polymer-summit">Polymer Summit 2015 - codelabs</a></li>
+          <li><a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/?redirect_from_locale=es">Shadow DOM 201</a></li>
+          <li><a href="https://www.youtube.com/watch?v=omASiF85JzI&list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN&index=21">Theming Elements -- Polycasts #17</a></li>
+          <li><a href="https://github.com/PolymerLabs">PolymerLabs</a></li>
+        </ul>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+  <script>
+    (function(document, Reveal){
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        menu: {
+          markers: true,
+          themes: false,
+          transitions: false,
+          custom: [
+              { title: 'Bookmarks', icon: '<i class="fa fa-bookmark">', src: './links.html' },
+          ]
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../reveal.js/lib/js/classList.js', async: true, condition: function() { return !document.body.classList; } },
+          { src: '../reveal.js/plugin/markdown/marked.js', async: true, condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/markdown/markdown.js', async: true, condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../reveal.js-menu/menu.js', async: true },
+          { src: '../reveal.js-tagcloud-plugin/tagcloud/tagcloud.js', async: true },
+          { src: '../Reveal.js-Title-Footer/plugin/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize(); } }
+        ]
+      });
+    })(document, Reveal)
+
+  </script>
+
+</body>
+
+</html>

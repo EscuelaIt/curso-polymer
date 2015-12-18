@@ -1,0 +1,13 @@
+{
+  "name": "Reveal.js-Title-Footer",
+  "homepage": "https://github.com/e-gor/Reveal.js-Title-Footer",
+  "_release": "c6a34a6e60",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c6a34a6e60d70c5ebcda168e07c0cebefdb85f88"
+  },
+  "_source": "git://github.com/e-gor/Reveal.js-Title-Footer.git",
+  "_target": "*",
+  "_originalSource": "e-gor/Reveal.js-Title-Footer"
+}

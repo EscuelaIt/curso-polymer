@@ -1,0 +1,48 @@
+{
+  "name": "curso-polymer",
+  "homepage": "https://github.com/EscuelaIt/curso-polymer",
+  "authors": [
+    "Miguel Angel Alvarez (@midesweb)",
+    "Jorge del Casar (@jorgecasar)",
+    "Felix Zapata (@felixzapata)",
+    "David Iglesias Zavala (@davidigza)",
+    "Luis Recio (@recluising)",
+    "Pedro Hurtado (@_PedroHurtado)",
+    "Matias Punx (@antirockstars)"
+  ],
+  "description": "En este taller se pretende dar una introducción ordenada a Polymer recorriendo los puntos esenciales para poder comenzar a trabajar con la librería.",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "polymer",
+    "webcomponents",
+    "html5"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal.js-menu": "~0.5.0",
+    "reveal.js": "~3.2.0",
+    "Reveal.js-Title-Footer": "e-gor/Reveal.js-Title-Footer",
+    "reveal.js-tagcloud-plugin": "sebhildebrandt/reveal.js-tagcloud-plugin",
+    "polymer": "~1.2.3",
+    "iron-ajax": "PolymerElements/iron-ajax"
+  },
+  "_release": "8d6f9b805c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8d6f9b805c7410bc0cb41af61030135ac90e6155"
+  },
+  "_source": "git://github.com/EscuelaIt/curso-polymer.git",
+  "_target": "master",
+  "_originalSource": "EscuelaIt/curso-polymer",
+  "_direct": true
+}

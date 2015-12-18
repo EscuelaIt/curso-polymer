@@ -1,0 +1,30 @@
+<link rel="import" href="duplicator-component.html">
+
+<dom-module id="alerter-component">
+	<template>
+		<duplicator-component on-to-duplicate-changed="_toDuplicateChanged" to-duplicate="{{someNumber}}"></duplicator-component>
+
+		{{someNumber}}
+	</template>
+
+	<script>
+		Polymer({
+			is: 'alerter-component',
+			properties: {
+				someNumber: {
+					type: Number,
+					notify: true // For notifying locally
+				}
+			},
+			listeners: {
+				'some-number-changed': '_someNumberChanged'
+			},
+			_someNumberChanged: function(e) {
+				alert('_someNumberChanged: ' + e.detail.value);
+			},
+			_toDuplicateChanged: function(e) {
+				alert('_toDuplicateChanged: ' + e.detail.value);
+			},
+		});
+	</script>
+</dom-module>

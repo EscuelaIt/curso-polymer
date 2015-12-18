@@ -1,0 +1,26 @@
+<link rel="import" href="sum-component.html">
+
+<dom-module id="numbers-component">
+	<template>
+
+		<!-- We could use [[]] instead-->
+		<sum-component sum1={{number1}} sum2={{number2}}></sum-component>
+
+	</template>
+
+	<script>
+		Polymer({
+			is: 'numbers-component',
+			properties: {
+				number1: {
+					type: Number,
+					value: 3
+				},
+				number2: {
+					type: Number,
+					value: 4
+				}
+			}
+		});
+	</script>
+</dom-module>

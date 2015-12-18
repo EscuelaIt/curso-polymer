@@ -1,0 +1,17 @@
+<dom-module id="number-printer">
+	<template>
+		{{number}}
+	</template>
+
+	<script>
+		Polymer({
+			is: 'number-printer',
+			properties: {
+				number: {
+					type: Number,
+          notify: true
+				}
+			}
+		});
+	</script>
+</dom-module>
