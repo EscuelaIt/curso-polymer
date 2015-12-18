@@ -32,6 +32,7 @@
     "reveal.js": "~3.2.0",
     "Reveal.js-Title-Footer": "e-gor/Reveal.js-Title-Footer",
     "reveal.js-tagcloud-plugin": "sebhildebrandt/reveal.js-tagcloud-plugin",
-    "polymer": "~1.2.3"
+    "polymer": "~1.2.3",
+    "iron-ajax": "PolymerElements/iron-ajax"
   }
 }
