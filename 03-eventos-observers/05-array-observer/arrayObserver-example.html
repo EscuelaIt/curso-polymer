@@ -43,7 +43,32 @@ Example:
 
   <script>
     Polymer({
-      is: 'arrayObserver-example'
+      is: 'arrayObserver-example',
+
+      properties: {
+        users: {
+          type: Array,
+          value: function(){
+            return ['Salvador','Enrique', 'Jose'];
+          }
+        }
+      },
+
+      observers: ['usersChanged(users.splices)'],
+
+      usersChanged: function (changeRecord){
+        if(changeRecord){
+           changeRecord.indexSplices.forEach(function(a){
+            a.removed.forEach(function(user){
+              console.log(user + ' fue borrado');
+            });
+            console.log(a.addedCount + 'fue agregado');
+          }, this);
+        }    
+      }
+
+
+
     });
   </script>
 </dom-module>

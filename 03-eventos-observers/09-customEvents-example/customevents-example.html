@@ -44,11 +44,32 @@ Example:
         max-width: 100px;
       }
     </style>
+    <div>
+      <h1>{{item}}</h1>
+      
+      <div>
+        <custom-event></custom-event>
+      </div>
+    </div>
   </template>
 
   <script>
     Polymer({
-      is: 'customevents-example'
+      is: 'customevents-example',
+      
+      properties:{
+        item: String
+      },
+
+      listeners: {
+        'davidSuperClick': 'doSomething'
+      },
+
+      doSomething: function (e) {
+        // body...
+        this.item = e.detail.special;
+      }
+
 
     });
   </script>

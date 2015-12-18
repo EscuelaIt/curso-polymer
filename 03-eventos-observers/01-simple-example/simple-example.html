@@ -48,7 +48,46 @@ Example:
 
   <script>
     Polymer({
-      is: 'simple-example'
+
+      is: 'simple-example',
+
+      properties: {
+        /**
+         * `name` indicates a properties call name,
+         * while checking its pocket watch.
+         */
+        name: {
+          type: String,
+          value: 'David',
+          observer: '_namedChanged'
+        },
+
+        futureName: {
+          type: String,
+          observer : '_fNameChanged'
+        }
+
+      },
+
+      handleClick: function(){
+        this.name = this.futureName;
+      },
+      /**
+       * Sometimes it's just nice to say hi.
+       *
+       * @param {string} greeting A positive greeting.
+       * @return {string} The full greeting.
+       */
+      namedChanged: function(newValue, oldValue) {
+        debugger
+      },
+      
+      _fNameChanged:function(newValue, oldValue){
+        debugger;
+      }
+
+
+
 
     });
   </script>

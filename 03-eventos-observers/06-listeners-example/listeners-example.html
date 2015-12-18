@@ -39,7 +39,22 @@ Example:
 
   <script>
     Polymer({
-      is: 'listeners-example'
+
+      is: 'listeners-example',
+
+      listeners: {
+        'tap': 'tapNormal',
+        'nodo.tap': 'tapNodo'
+      },
+
+      tapNormal: function(e) {
+        alert("he llegado al Host");
+      },
+
+      tapNodo: function(e) {
+        e.stopPropagation();
+        alert("Me han generado en el Nodo");
+      }
     });
   </script>
 </dom-module>

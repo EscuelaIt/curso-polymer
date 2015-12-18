@@ -41,7 +41,23 @@ Example:
 
   <script>
     Polymer({
-      is: 'nameChanged-example'
+      is: 'nameChanged-example',
+      
+      properties:{
+        person: {
+          type: String,
+          notify: true
+        }
+      },
+
+      listeners: {
+        'person-changed': 'changed'
+      },
+
+      changed: function(event) {
+        alert('cambio a este valor: '+ event.detail.value);
+      }
+
     });
   </script>
 </dom-module>

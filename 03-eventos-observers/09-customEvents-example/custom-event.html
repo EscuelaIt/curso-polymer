@@ -14,12 +14,22 @@
         max-width: 100px;
       }
     </style>
+    <div>
+      <p>press the button to fire the super event</p>
+      <button on-tap="fireEvent" data-special="special tap">press me</button>
+    </div>
   </template>
 
   <script>
     Polymer({
       
-      is: 'custom-event'
+      is: 'custom-event',
+
+      fireEvent: function (e) {
+        // body...
+        this.fire('davidSuperClick', e.target.dataset);
+      }
+
 
     });
   </script>
