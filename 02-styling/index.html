@@ -74,44 +74,155 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
       <section>
-        <section style="text-align: left;" data-state="no-toc-progress">
-          <h1 class="no-toc-progress">Styling</h1>
-          <h2>Curso Polymer Escuela IT</h2>
-          <h3>Por <a href="http://twitter.com/felixzapata" target="_blank">Felix Zapata</a> / <a href="http://twitter.com/felixzapata" target="_blank">@felixzapata</a></h3>
-        </section>
-
-        <section id="sobre-mi">
-          <h1>Sobre mi</h1>
-          <h2>Felix Zapata</h2>
-          <h4>Puesto en <a href="#" target="_blank">Compañia</a></h4>
-          <p tagcloud>
-            HTML5
-            JavaScript
-            Polymer
-            WebComponents
-            Github
-            GulpJS
-          </p>
-        </section>
+        <h1>Estilos con Polymer</h1>
+        <p>
+          <small><a href="http://twitter.com/felixzapata">@felixzapata</a></small>
+        </p>
       </section>
 
       <section>
-        <section id="styling">
-          <h1>Styling</h1>
+          <h2>Sobre mí</h2>
+          <ul>
+              <li>Desarrollador senior <em>front end</em> y consultor de accesibilidad web en <a href="http://www.gft.com/es/es/index.html">GFT</a>.</li>
+              <li>Fundador del grupo <em>meetup</em> <a href="http://www.meetup.com/WordPress-Madrid/">WordPress Madrid</a>.</li>
+              <li>Coorganizador de los grupos <em>meetup</em> <a href="http://www.meetup.com/Accesibilidad-Spain/">Accesibilidad Spain</a>, <a href="http://www.meetup.com/AngularJS_Madrid/">AngularJS Madrid</a> y <a href="http://www.meetup.com/es/Madrid-Polymer-Group/">Polymer Madrid</a>.</li>
+              <li>Aerotranstornado: piloto online P1 y controlador S3 en la red <a href="http://www.vatsim.net/">VATSIM</a>.</li>
+              <li><a href="https://github.com/felixzapata">Mi GitHub</a></li>
+          </ul>
+
+      </section>
+      
+      <section>
+        <h2>¿Qué vamos a ver?</h2>
+        <ul>
+          <li>Custom CSS properties.</li>
+          <li>Custom CSS mixins.</li>
+          <li>Shared styles.</li>
+          <li>Custom styles.</li>
+          <li><em>One more thing.</em></li>
+        </ul>
+      </section>
+      
+      <section>
+        <section>
+          <h2>Pero antes de nada...</h2>
+        </section>
+        <section>
+          <h3>Un poco de filosofía</h3>
+          <p class="fragment">Pensad que un &lt;select&gt; es:</p>
+          <ul>
+            <li class="fragment">Funcional.</li>
+            <li class="fragment">Reusable.</li>
+            <li class="fragment">Interoperable.</li>
+            <li class="fragment">Encapsulado.</li>
+            <li class="fragment">Configurable.</li>
+            <li class="fragment">Programable.</li>
+            <li class="fragment">Genera eventos.</li>
+            <li class="fragment">Moldeable.</li>
+          </ul>
+        </section>
+        <section>
+            <h3>Shadow DOM</h3>
+            <p>¿Habéis pensado alguna vez dónde están los elementos que componen un control slider?.</p>
+            <p class="fragment">... hablemos del <em>castillo</em>...</p>
+            <p class="fragment"><a href="https://www.youtube.com/watch?v=IbOaJwqLgog&list=PLNYkxOF6rcICdISJclfQhj2S8QZGjXV8J&index=10">Polymer's Styling System (The Polymer Summit 2015)</a></p>
+        </section>
+        
+        
+        <section>
+            <h3>::shadow</h3>
+            <p>Permite dar estilos a nodos interiores dentro de un shadow dom</p>
+            <pre><code class="html">&lt;paper-slider min="" max="" &gt;&lt;paper-slider&gt;</code></pre>
+            <pre><code class="css">paper-slider::shadow #sliderKnoInner { background-color:$f4b400; }</code></pre>
+            
+        </section>
+        <section>
+            <h3>/deep/</h3>
+            <p>Profundiza dentro de un nodo y busca elementos.</p>
+            <pre><code class="html">&lt;div&gt;
+&lt;span&gt;Outer&lt;/span&gt;
+#shadow-root
+&lt;my-component&gt;
+  &lt;span&gt;Inner&lt;/span&gt;
+&lt;/my-component&gt;
+&lt;/div&gt;</code></pre>
+
+
+            <pre><code class="css">html /deep/ span { background-color:$f4b400; }</code></pre>
+            <pre><code class="css">::shadow span { background-color:$f4b400; }</code></pre>
+            
+        </section>
+        <section>
+          <h3>¿Por qué no se debe usar ::shadow y /deep/?</h3>
+          <ul>
+            <li class="fragment">Rompe la encapsulación.</li>
+            <li class="fragment">Problemas de rendimiento.</li>
+            <li class="fragment">Solución poco elegante.</li>
+          </ul>
+          
+        </section>
+        <section>
+            <h3>Shady DOM</h3>
+            <p><a href="https://www.polymer-project.org/1.0/articles/shadydom.html">Why do we need a new kind of DOM?</a></p>
+        </section>
+        <section>
+            <h3>Global Polymer Settings</h3>
+            <pre><code class="html">&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;script src="components/webcomponentsjs/webcomponents-lite.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.Polymer = window.Polymer || {};
+  window.Polymer.dom = 'shadow';
+&lt;/script&gt;
+&lt;/head&gt;</code></pre>
         </section>
       </section>
-
-      <section id="" style="text-align: left;" data-state="no-toc-progress">
-        <h1>Q&A</h1>
-        <h3>Styling<br/>
-          <small>por <a href="http://twitter.com/felixzapata" target="_blank">Felix Zapata</a> / <a href="http://twitter.com/felixzapata" target="_blank">@felixzapata</a></small>
-        </h3>
-        <h4>Resumen</h4>
+      
+      <section>
+        <h2>Custom CSS properties</h2>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables">¿Conocéis las variables de CSS?</a></p>
+        <p class="fragment"><strong>Ojo</strong>, Polymer incluye un <em>shim</em>, así que puede que no se <a href="https://github.com/Polymer/polymer/issues/2709">comporte igual que la especificación</a>.</p>
+      </section>
+      
+      <section>
+        <h2>Custom CSS mixins</h2>
+        <p>D.R.Y.: El <em>shim</em> permite que podamos definir un conjunto de reglas y aplicar éstas a una que estemos definiendo.</p>
+      </section>
+      
+      <section>
+        <h2>Shared styles</h2>
+        <p><a href="http://stackoverflow.com/questions/32298500/polymer-import-theme-file-with-host-in-styles-has-no-affect/32302856#32302856">Polymer @import theme file with :host in styles has no affect</a>.</p>
+        
+      </section>
+      
+      
+      
+      <section>
+        <h2>Custom styles</h2>
+        <p>Definimos estilos en el documento principal tomando ventajas de características especiales de Polymer.</p>
+        <p>Sólo debe ser usado para definir estilos de documento y no (supuestamente) para elementos propios.</p>
+        
+      </section>
+      
+      
+      <section>
+        <h2>One more thing</h2>
         <ul>
-          <li><a href="#/">…</a></li>
-          <li><a href="#/">…</a></li>
-          <li><a href="#/">…</a></li>
-          <li><a href="#/">…</a></li>
+          <li><a href="https://github.com/PolymerLabs/polystyles">Polystyles</a>: Polymer style module web service</li>
+          <li><a href="https://github.com/dlmanning/gulp-sass">gulp-sass</a> vs <a href="https://github.com/sindresorhus/gulp-ruby-sass">gulp-ruby-sass</a></li>
+          <li><a href="http://enpmjs.com/package/gulp-polymerize-css">gulp-polymerize-css</a></li>
+        </ul>
+      </section>
+      
+      
+      <section>
+        <h2>Enlaces de interés</h2>
+        <ul>
+          <li><a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICdISJclfQhj2S8QZGjXV8J">The Polymer Summit 2015</a></li>
+          <li><a href="https://www.code-labs.io/polymer-summit">Polymer Summit 2015 - codelabs</a></li>
+          <li><a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/?redirect_from_locale=es">Shadow DOM 201</a></li>
+          <li><a href="https://www.youtube.com/watch?v=omASiF85JzI&list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN&index=21">Theming Elements -- Polycasts #17</a></li>
+          <li><a href="https://github.com/PolymerLabs">PolymerLabs</a></li>
         </ul>
       </section>
 
