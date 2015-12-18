@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+	<link rel="import" href="../../../polymer/polymer.html">
+	<link rel="import" href="components/number-giver.html">
+	<link rel="import" href="components/number-printer.html">
+	</script>
+</head>
+
+<body unresolved>
+	<template id="template" is="dom-bind">
+		<number-giver on-some-number-changed="listener" some-number={{number}}></number-giver>
+		<number-printer number={{number}}></number-printer>
+	</template>
+	<script>
+		var t = document.querySelector('#template');
+		t.addEventListener('dom-change', function() {
+			t.listener = function(e) {
+				alert('changed number: ' + e.detail.value);
+			};
+			console.log('Ready template dom bind');
+		});
+	</script>
+</body>
+
+</html>
