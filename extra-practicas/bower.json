@@ -1,0 +1,24 @@
+{
+  "name": "extra-polymer",
+  "authors": [
+    "Miguel Angel Alvarez <malvarez@desarrolloweb.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~1.2.3",
+    "paper-dialog": "PolymerElements/paper-dialog#~1.0.3",
+    "paper-button": "PolymerElements/paper-button#~1.0.11",
+    "google-youtube": "GoogleWebComponents/google-youtube#~1.1.2"
+  }
+}

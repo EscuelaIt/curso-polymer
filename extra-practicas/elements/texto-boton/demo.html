@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo del texto boton</title>
+	<script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+	<script>
+	window.Polymer = window.Polymer || {};
+	//window.Polymer.dom = 'shadow';
+	</script>
+	<link rel="import" href="texto-boton.html">
+	<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+	<style is="custom-style">
+	texto-boton{
+		font-family: sans-serif;
+		border: solid 3px black;
+		--paragraph-text-decoration: overline;
+		--paragraph-color: blue;
+		--boton-color: black;
+	}
+	.rojo{
+		border-color: red;
+		--boton-color: red;
+	}
+	p{
+		color: red;
+		text-decoration: underline;
+		background-color: red;
+	}
+	</style>
+	<style>
+		p{
+			text-transform: uppercase;
+		}
+	</style>
+</head>
+<body>
+	<texto-boton class="rojo"></texto-boton>
+	<texto-boton></texto-boton>
+	<paper-button>alguna cosa</paper-button>
+</body>
+</html>
