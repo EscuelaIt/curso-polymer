@@ -1,0 +1,47 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<dom-module id="texto-boton">
+	<template>
+		<style>
+			:host{
+				background-color: #ddd;
+				display: block;
+				padding: 10px;
+				border: 1px solid #f80;
+				/*--paragraph-text-decoration: overline;*/
+			}
+			paper-button{
+				background-color: pink;
+				font-size: 1.4em;
+				color: var(--boton-color, green);
+				--paper-button-ink-color: red;
+				--paper-button-disabled: {
+					color: #666;
+					background-color: #ccc;
+					text-shadow: 1px 1px 1px red;
+				};
+			}
+			p{
+				margin-bottom: 30px;
+				text-decoration: var(--paragraph-text-decoration, none);
+				color: var(--paragraph-color, brown);
+			}
+		</style>
+		<p>Esto es un párrafo</p>
+		<paper-button on-tap="cambiatexto">{{texto}}</paper-button>
+	</template>
+	<script>
+	Polymer({
+		is: "texto-boton",
+		properties: {
+			texto: {
+				type: String,
+				value: "Esto es el botón"
+			}
+		},
+		cambiatexto: function(){
+			//this.texto = "llalala";
+		}
+	})
+	</script>
+</dom-module>

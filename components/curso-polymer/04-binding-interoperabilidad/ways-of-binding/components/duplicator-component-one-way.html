@@ -1,0 +1,21 @@
+<dom-module id="duplicator-component-one-way">
+	<template>
+		<button on-click="_duplicator">Duplicate</button>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'duplicator-component-one-way',
+			properties: {
+				toDuplicate: {
+					type: Number
+				},
+			},
+			_duplicator: function(toDuplicate) {
+				var doubleValue = this.toDuplicate * 2;
+				this.set('toDuplicate', doubleValue);
+				console.log("doubled: ", this.toDuplicate);
+			}
+		});
+	</script>
+</dom-module>

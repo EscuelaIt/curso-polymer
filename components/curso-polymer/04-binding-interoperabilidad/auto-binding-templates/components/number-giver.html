@@ -1,0 +1,21 @@
+<dom-module id="number-giver">
+	<template>
+		<button on-click="add">add</button>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'number-giver',
+			properties: {
+				someNumber: {
+					type: Number,
+					notify: true,
+					value: 8
+				}
+			},
+			add: function() {
+				this.set('someNumber', this.someNumber + 1);
+			}
+		});
+	</script>
+</dom-module>

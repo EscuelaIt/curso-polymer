@@ -1,0 +1,18 @@
+<dom-module id="native-binder">
+	<template>
+		<input type="text" value="{{inputValue::input}}"></input>
+
+		<b>Real time bindint -> {{inputValue}}</b>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'native-binder',
+			properties: {
+				inputValue: {
+					type: String
+				}
+			}
+		});
+	</script>
+</dom-module>

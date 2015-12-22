@@ -1,0 +1,91 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+An element providing a solution to no problem in particular.
+
+Example:
+
+    <deepObserver-example></deepObserver-example>
+
+Example:
+
+    <deepObserver-example>
+      <h2>Hello deepObserver-example</h2>
+    </deepObserver-example>
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="deepObserver-example">
+  <template>
+    <style>
+      :host {
+        display: block;
+        box-sizing: border-box;
+      }
+    </style>
+
+    <p>Player: {{fullname}}</p>
+    <p>Points: {{person.points}}</p>
+    <p>lives:  {{person.lives}}</p>
+
+    <label for="val"> enter a val</label>
+    <input type="text" id="val" name="val"/>
+
+    <label for="subProperty"> enter a subProperty</label>
+    <input type="text" id="subProperty" name="subProperty" value="lives"/>
+
+    <button on-tap="changeSubPropertie"> change properties</button>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'deepObserver-example',
+
+      properties: {
+        person: {
+          type: Object,
+          value: function(){
+            return { name: 'David', lastName: 'Iglesias', points: 5000, lives: 1}
+          }
+        },
+        fullname: {
+          type: String,
+          computed: 'computeFullName(person.name, person.lastName)'
+        }
+
+      },
+
+      observers: ['personChanged(person.*)'],
+
+      personChanged: function (changeRecord){
+        console.log(changeRecord.base);
+        console.log(changeRecord.path);
+        console.log(changeRecord.value);
+      },
+
+      computeFullName: function(name, lastName) {
+       return name + ' ' + lastName;
+     },
+
+     changeSubPropertie: function (){
+       var path;
+       path = 'person.' + this.$.subProperty.value;
+       this.set(path,this.$.val.value);
+     }
+
+
+    });
+  </script>
+</dom-module>

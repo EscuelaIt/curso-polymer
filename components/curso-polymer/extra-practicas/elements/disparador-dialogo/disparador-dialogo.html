@@ -1,0 +1,48 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/google-youtube/google-youtube.html">
+
+<dom-module id="disparador-dialogo">
+	<template>
+		<paper-dialog id="dialogo" modal iron-overlay-canceled="pausar">
+		  <h2>{{titulo}}</h2>
+		  <p>
+		  	<content></content>
+		  </p>
+		  <div>
+		  	<google-youtube
+			  video-id="DLaNQK78QAY"
+			  height="270px"
+			  width="480px"
+			  id="video"
+			  >
+			</google-youtube>
+		  </div>
+		  <div class="buttons">
+		    <paper-button dialog-dismiss>Cerrar</paper-button>
+		    <paper-button on-tap="pausar">Pausar</paper-button>
+		  </div>
+		</paper-dialog>
+		<paper-button raised on-tap="abrirDialogo">Abrir</paper-button>
+	</template>
+	<script>
+		var x = Polymer({
+			is: "disparador-dialogo",
+			properties: {
+				titulo: {
+					type: String,
+					value: 'Título'
+				}
+			},
+			abrirDialogo: function() {
+				this.$.dialogo.open();
+			},
+			pausar: function() {
+				this.$.video.pause();
+			}
+		});
+		var y = new x(w,w);
+		elementoDomMeterElVideo.appendChild(y);
+	</script>
+</dom-module>
