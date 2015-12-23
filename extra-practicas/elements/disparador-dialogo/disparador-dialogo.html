@@ -1,27 +1,20 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../../bower_components/google-youtube/google-youtube.html">
+<link rel="import" href="../video-vimeo/video-vimeo.html">
 
 <dom-module id="disparador-dialogo">
 	<template>
-		<paper-dialog id="dialogo" modal iron-overlay-canceled="pausar">
+		<paper-dialog opened="{{abierto}}" id="dialogo" on-iron-overlay-closed='cerrando'>
 		  <h2>{{titulo}}</h2>
 		  <p>
 		  	<content></content>
 		  </p>
-		  <div>
-		  	<google-youtube
-			  video-id="DLaNQK78QAY"
-			  height="270px"
-			  width="480px"
-			  id="video"
-			  >
-			</google-youtube>
+		  <div id="contenedorvideo">
+
 		  </div>
 		  <div class="buttons">
 		    <paper-button dialog-dismiss>Cerrar</paper-button>
-		    <paper-button on-tap="pausar">Pausar</paper-button>
 		  </div>
 		</paper-dialog>
 		<paper-button raised on-tap="abrirDialogo">Abrir</paper-button>
@@ -33,16 +26,22 @@
 				titulo: {
 					type: String,
 					value: 'Título'
+				},
+				abierto: {
+					type: Boolean,
+					value: false
 				}
 			},
 			abrirDialogo: function() {
 				this.$.dialogo.open();
+				var video = document.createElement('video-vimeo');
+				video.idvideo = '148982525';
+				this.$.contenedorvideo.appendChild(video);
 			},
-			pausar: function() {
-				this.$.video.pause();
+			cerrando: function(){
+				//this.$.contenedorvideo.innerHTML = '';
+				this.$.contenedorvideo.removeChild(document.querySelector('video-vimeo'));
 			}
 		});
-		var y = new x(w,w);
-		elementoDomMeterElVideo.appendChild(y);
 	</script>
 </dom-module>

@@ -1,0 +1,21 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="lista-elementos">
+  <template>
+    <template is="dom-if" if="{{elementos.length}}">
+      <ul>
+        <template is="dom-repeat" items="{{elementos}}">
+          <li>{{index}}: {{item.name}}</li>
+        </template>
+      </ul>
+    </template>
+  </template>
+  <script>
+    Polymer({
+      is: "lista-elementos",
+      properties: {
+        elementos: Array
+      }
+    })
+  </script>
+</dom-module>

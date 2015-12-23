@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ejemplo listado paises</title>
+  <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+  <link rel="import" href="elements/lista-elementos/lista-elementos.html">
+</head>
+<body>
+  <template is="dom-bind">
+    <iron-ajax
+    auto
+    url="https://restcountries.eu/rest/v1/all/"
+    handle-as="json"
+    last-response="{{listadoPaises}}"
+    debounce-duration="300"></iron-ajax>
+    <lista-elementos elementos="{{listadoPaises}}"></lista-elementos>
+  </template>
+</body>
+</html>

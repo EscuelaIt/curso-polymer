@@ -19,6 +19,7 @@
     "polymer": "~1.2.3",
     "paper-dialog": "PolymerElements/paper-dialog#~1.0.3",
     "paper-button": "PolymerElements/paper-button#~1.0.11",
-    "google-youtube": "GoogleWebComponents/google-youtube#~1.1.2"
+    "google-youtube": "GoogleWebComponents/google-youtube#~1.1.2",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.1.1"
   }
 }

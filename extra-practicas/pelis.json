@@ -1,0 +1,89 @@
+{
+  "peliculas": [
+    {
+      "id": 1,
+      "name": "El sexto sentido",
+      "director": "M. Night Shyamalan",
+      "clasificacion": "Drama"
+    },
+    {
+      "id": 2,
+      "name": "Pulp Fiction",
+      "director": "Tarantino",
+      "clasificacion": "Acción"
+    },
+    {
+      "id": 3,
+      "name": "Todo Sobre Mi Madre",
+      "director": "Almodobar",
+      "clasificacion": "Drama"
+    },
+    {
+      "id": 4,
+      "name": "300",
+      "director": "Zack Snyder",
+      "clasificacion": "Acción"
+    },
+    {
+      "id": 5,
+      "name": "El silencio de los corderos",
+      "director": "Jonathan Demme",
+      "clasificacion": "Drama"
+    },
+    {
+      "id": 6,
+      "name": "Forrest Gump",
+      "director": "Robert Zemeckis",
+      "clasificacion": "Comedia"
+    },
+    {
+      "id": 7,
+      "name": "Las Hurdes",
+      "director": "Luis Buñuel",
+      "clasificacion": "Documental"
+    },
+    {
+      "name": "lalala",
+      "director": "Almodobar",
+      "clasificacion": "Drama",
+      "id": 8
+    },
+    {
+      "name": "jejeje",
+      "director": "Spilberg",
+      "clasificacion": "Accion",
+      "id": 9
+    },
+    {
+      "lol": "jejeje",
+      "director": "Spilberg",
+      "clasificacion": "Accion",
+      "id": 10
+    },
+    {
+      "name": "jejeje",
+      "duracion": "90min",
+      "director": "Spilberg",
+      "clasificacion": "Accion",
+      "id": 11
+    }
+  ],
+  "clasificaciones": [
+    {
+      "name": "Drama",
+      "id": 1
+    },
+    {
+      "name": "Comedia",
+      "id": 2
+    },
+    {
+      "name": "Documental",
+      "id": 3
+    },
+    {
+      "name": "Acción",
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="video-vimeo">
+  <template>
+    <iframe src="https://player.vimeo.com/video/{{idvideo}}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  </template>
+  <script>
+  Polymer({
+    is: 'video-vimeo',
+    properties: {
+      idvideo: String
+    }
+  })
+  </script>
+</dom-module>

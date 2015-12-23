@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>disparador</title>
+  <link rel="import" href="elements/elements.html">
+</head>
+<body>
+  <template is="dom-bind" id="app">
+    <paper-button onclick="abre()">Abre dialogo</paper-button>
+    <paper-dialog id="dialogo" on-iron-overlay-closed="cerrando">
+      <h2>Probando...</h2>
+      <div id="contenedorvideo">
+        <video-vimeo idvideo="{{idvideo}}"></video-vimeo>
+      </div>
+      <div class="buttons">
+        <paper-button dialog-dismiss>Cerrar</paper-button>
+      </div>
+    </paper-dialog>
+    <p>
+      ID: <input type="text" value="{{idvideo::input}}">
+    </p>
+    <video-vimeo idvideo="{{idvideo}}"></video-vimeo>
+  </template>
+  <script>
+    var app = document.getElementById('app');
+    app.addEventListener('dom-change', function() {
+      // auto-binding template is ready.
+      app.idvideo = '147196782';
+      app.cerrando = function(){
+        alert('estas cerrando');
+      }
+    });
+    function abre(){
+      //alert('probando');
+      document.getElementById('dialogo').open();
+    }
+  </script>
+</body>
+</html>

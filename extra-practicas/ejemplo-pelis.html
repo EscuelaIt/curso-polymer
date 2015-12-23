@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ver pelis</title>
+  <link rel="import" href="bower_components/polymer/polymer.html">
+  <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+</head>
+<body>
+  <iron-ajax
+    url="http://localhost:3000/peliculas/"
+    method="POST"
+    body='{"name":"jejeje", "duracion": "90min","director":"Spilberg", "clasificacion":"Accion"}'
+    auto
+    content-type="application/json"
+  ></iron-ajax>
+</body>
+</html>

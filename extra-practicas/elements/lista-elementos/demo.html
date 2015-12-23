@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo de la lista</title>
+  <link rel="import" href="lista-elementos.html">
+</head>
+<body>
+  <template is="dom-bind" id="app">
+    <lista-elementos elementos="{{elems}}"></lista-elementos>
+  </template>
+  <script>
+    var app = document.getElementById('app');
+    app.addEventListener('dom-change', function() {
+      app.elems = [
+        {
+          name: "miguel"
+        },
+        {
+          name: "Federico"
+        },
+        {
+          name: "Marcos"
+        },
+      ]
+    });
+  </script>
+</body>
+</html>
